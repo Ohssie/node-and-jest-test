@@ -15,6 +15,11 @@
  * /^[A-Z]/.('I am a boy') //True
 */
 
-const testString = str => /^[A-Z]/.test(str)
+const testString = str => {
+  if(typeof str !== 'string') {
+    return false;
+  }
 
-module.exports = testString
+  return /^[A-Z]/.test(str)
+}
+module.exports = testString;
