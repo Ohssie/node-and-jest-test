@@ -5,28 +5,24 @@
 "use strict"
 const area = radius => {
   try {
+    // console.log(typeof radius)
     if (typeof radius === 'undefined') {
-        return "Please supply an argument";
+      throw "Please supply an argument";
     }
 
     if(typeof radius !== 'number' || isNaN(radius)) {
-      return "Please supply a number as radius";
+      throw "Please supply a number as radius";
     }
 
     if (radius <= 0) {
-        return "A circle cannot have a radius less than 0";
+      throw "A circle cannot have a radius less than 0";
     }
 
     return (Math.PI * Math.pow(radius, 2)).toFixed(4);
+
   } catch (err) {
-    if(err instanceof ReferenceError) {
-      console.error(`Error: ${err}`);
-      throw err
-    } else {
-      console.error(`Error: ${err}`, false);
-      throw err
-    }
-    
+    // console.log(`Error: ${err}`);
+    throw err;
   }
 }
 

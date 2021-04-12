@@ -20,32 +20,32 @@ test('given 100 as the radius', () => {
 
 /** test cases with invalid values */
 test('given a value that is not a number', () => {
-  expect(area('hello')).toBe('Please supply a number as radius');
+  expect(() => area('hello')).toThrow('Please supply a number as radius');
 })
 test('given a value that is not a number', () => {
-  expect(area('123')).toBe('Please supply a number as radius');
+  expect(() => area('123')).toThrow('Please supply a number as radius');
 })
 test('given a value less than or equal to 0', () => {
-  expect(area(0)).toBe('A circle cannot have a radius less than 0');
+  expect(() => area(0)).toThrow('A circle cannot have a radius less than 0');
 })
 test('given a value less than or equal to 0', () => {
-  expect(area(-1)).toBe('A circle cannot have a radius less than 0');
+  expect(() => area(-1)).toThrow('A circle cannot have a radius less than 0');
 })
 test('given 0.4 as the radius', () => {
   expect(area(0.4)).toBe((Math.PI * 0.4 * 0.4).toFixed(4));
 })
 test('given an invalid value', () => {
-  expect(area(NaN)).toBe('Please supply a number as radius');
+  expect(() => area(NaN)).toThrow('Please supply a number as radius');
 })
 test('given a null value', () => {
-  expect(area(null)).toBe('Please supply a number as radius');
+  expect(() => area(null)).toThrow('Please supply a number as radius');
 })
 test('given a boolean value', () => {
-  expect(area(true)).toBe('Please supply a number as radius');
+  expect(() => area(true)).toThrow('Please supply a number as radius');
 })
 test('given a boolean value', () => {
-  expect(area(false)).toBe('Please supply a number as radius');
+  expect(() => area(false)).toThrow('Please supply a number as radius');
 })
 test('given an empty argument', () => {
-  expect(area()).toBe('Please supply an argument');
+  expect(() => area()).toThrow('Please supply an argument');
 })
